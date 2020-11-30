@@ -1,5 +1,6 @@
 package edu.uark.msk001.stepmusicstreamer;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.hardware.Sensor;
@@ -23,8 +24,10 @@ import com.spotify.protocol.client.Subscription;
 import com.spotify.protocol.types.PlayerState;
 import com.spotify.protocol.types.Track;
 
+import edu.uark.msk001.stepmusicstreamer.R;
 
-public class MainActivity extends AppCompatActivity /*implements SensorEventListener*/ {
+
+public class StepCounter extends AppCompatActivity implements SensorEventListener {
     private TextView tvStepCounter, tvOther;
     private SensorManager sensorManager;
     private Sensor mStepCounter;
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity /*implements SensorEventList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /*setContentView(R.layout.step_counter);
+        setContentView(R.layout.step_counter);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         tvStepCounter = (TextView)findViewById(R.id.tvNumSteps);
@@ -63,23 +66,23 @@ public class MainActivity extends AppCompatActivity /*implements SensorEventList
             tvStepCounter.setText("StepDetector Sensor is not present");
             isCounterSensorPresent = false;
         }
-        spotifyBtn.setOnClickListener(new View.OnClickListener() {
+        /*spotifyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 play();
             }
-        });
+        });*/
         stepCount = 0;
         stepPerMin = 0;
 
         tvStepCounter.setText(String.valueOf(stepCount));
         tvOther.setText(String.valueOf(stepPerMin));
-        stepTimeArray = new ArrayList<Long>();*/
+        stepTimeArray = new ArrayList<Long>();
 
     }
 
 
-   /* private void play()
+    private void play()
     {
         mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:37i9dQZF1DX2sUQwD7tbmL");
         mSpotifyAppRemote.getPlayerApi()
@@ -93,9 +96,9 @@ public class MainActivity extends AppCompatActivity /*implements SensorEventList
                         }
                     }
                 });
-    }*/
+    }
 
-   /* @Override
+    @Override
     public void onSensorChanged(SensorEvent event) {
         if(event.sensor == mStepCounter)
         {
@@ -121,24 +124,24 @@ public class MainActivity extends AppCompatActivity /*implements SensorEventList
             stepPerMin = 60000/(stepPerMin / stepTimeArray.size());
             tvOther.setText(String.valueOf(stepPerMin));
         }
-    }*/
+    }
 
     //Won't happen
-   /* @Override
+    @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
-    }*/
+    }
 
-    /*@Override
+    @Override
     protected void onResume() {
         super.onResume();
         if(sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR) != null)
         {
             sensorManager.registerListener(this, mStepCounter, SensorManager.SENSOR_DELAY_NORMAL);
         }
-    }*/
+    }
 
-    /*@Override
+    @Override
     protected void onPause() {
         super.onPause();
         if(sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR) != null)
@@ -146,19 +149,19 @@ public class MainActivity extends AppCompatActivity /*implements SensorEventList
             sensorManager.unregisterListener(this, mStepCounter);
             //stepCount = 0;
         }
-    }*/
+    }
 
-   /* @Override
+    @Override
     protected void onStop() {
         super.onStop();
         stepCount = 0;
-       // SpotifyAppRemote.disconnect(mSpotifyAppRemote);
-    }*/
+        // SpotifyAppRemote.disconnect(mSpotifyAppRemote);
+    }
 
-   /* @Override
+    @Override
     protected void onStart() {
         super.onStart();
-        Log.d("OnStart", "ConnectionParams");
+       /* Log.d("OnStart", "ConnectionParams");
         ConnectionParams connectionParams =
                 new ConnectionParams.Builder(CLIENT_ID)
                         .setRedirectUri(REDIRECT_URI)
@@ -187,10 +190,10 @@ public class MainActivity extends AppCompatActivity /*implements SensorEventList
                         // Something went wrong when attempting to connect! Handle errors here
                     }
                 });
-        Log.d("OnStart", "Connected");
-    //}*/
+        Log.d("OnStart", "Connected");*/
+    }
 
-   /* private void connected()
+    private void connected()
     {
         spotifyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -198,6 +201,6 @@ public class MainActivity extends AppCompatActivity /*implements SensorEventList
                 play();
             }
         });
-    }*/
+    }
 
 }
