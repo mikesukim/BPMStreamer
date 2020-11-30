@@ -85,15 +85,14 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     private void play()
     {
         mSpotifyAppRemote.getPlayerApi().play("spotify:playlist:37i9dQZF1DX2sUQwD7tbmL");
+
+        // Subscribe to PlayerState
         mSpotifyAppRemote.getPlayerApi()
                 .subscribeToPlayerState()
-                .setEventCallback(new Subscription.EventCallback<PlayerState>() {
-                    @Override
-                    public void onEvent(PlayerState playerState) {
-                        final Track track = playerState.track;
-                        if (track != null) {
-                            Log.d("MainActivity", track.name + " by " + track.artist.name);
-                        }
+                .setEventCallback(playerState -> {
+                    final Track track = playerState.track;
+                    if (track != null) {
+                        Log.d("MainActivity", track.name + " by " + track.artist.name);
                     }
                 });
     }
@@ -155,42 +154,38 @@ public class StepCounter extends AppCompatActivity implements SensorEventListene
     protected void onStop() {
         super.onStop();
         stepCount = 0;
-        // SpotifyAppRemote.disconnect(mSpotifyAppRemote);
+         SpotifyAppRemote.disconnect(mSpotifyAppRemote);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-       /* Log.d("OnStart", "ConnectionParams");
+        Log.d("OnStart", "ConnectionParams");
         ConnectionParams connectionParams =
                 new ConnectionParams.Builder(CLIENT_ID)
                         .setRedirectUri(REDIRECT_URI)
                         .showAuthView(true)
                         .build();
 
-
-        Log.d("OnStart", "Connect");
         SpotifyAppRemote.connect(this, connectionParams,
                 new Connector.ConnectionListener() {
 
-                    @Override
                     public void onConnected(SpotifyAppRemote spotifyAppRemote) {
-                        Log.d("MainActivity", "Connected! Yay!");
                         mSpotifyAppRemote = spotifyAppRemote;
                         Log.d("MainActivity", "Connected! Yay!");
 
                         // Now you can start interacting with App Remote
-                        //connected();
+                        connected();
+
                     }
 
-                    @Override
                     public void onFailure(Throwable throwable) {
-                        Log.e("MainActivity Fail", throwable.getMessage(), throwable);
+                        Log.e("MyActivity", throwable.getMessage(), throwable);
 
                         // Something went wrong when attempting to connect! Handle errors here
                     }
                 });
-        Log.d("OnStart", "Connected");*/
+        Log.d("OnStart", "Connected");
     }
 
     private void connected()
