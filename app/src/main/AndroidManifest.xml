@@ -13,15 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--Testing Purpose Only. Delete after testing-->
-        <activity android:name=".MusicListActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--        &lt;!&ndash;Testing Purpose Only. Delete after testing&ndash;&gt;-->
+<!--        <activity android:name=".MusicListActivity">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <!---->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+<!--        &lt;!&ndash;&ndash;&gt;-->
 
         <activity
             android:name=".MainActivity">
@@ -30,9 +30,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".MainActivity">
-
         </activity>
     </application>
 
