@@ -32,7 +32,13 @@ public class MusicListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_list);
 
-        requestAPIbyBPM(70);
+        int bpm = 40;
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            bpm = extras.getInt("bpm");
+            //The key argument here must match that used in the other activity
+        }
+        requestAPIbyBPM(bpm);
     }
 
     private void requestAPIbyBPM(int bpm){
@@ -92,8 +98,8 @@ public class MusicListActivity extends AppCompatActivity {
         DataTableHeader header = new DataTableHeader.Builder()
                 .item("Title", 2)
                 .item("Artist", 2)
+                .item("BPM", 2)
                 .item("Year", 2)
-                .item("Tempo", 2)
                 .build();
 
         return header;
