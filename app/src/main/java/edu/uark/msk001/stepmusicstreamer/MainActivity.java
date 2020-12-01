@@ -65,6 +65,9 @@ public class MainActivity extends AppCompatActivity /*implements SensorEventList
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),"Measure your steps!",Toast.LENGTH_SHORT).show();
+
+                Intent stepCounterActivity = new Intent(getApplicationContext(),StepCounterActivity.class);
+                startActivity(stepCounterActivity);
             }
         });
 
@@ -81,7 +84,7 @@ public class MainActivity extends AppCompatActivity /*implements SensorEventList
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                Toast.makeText(getApplicationContext(),"YEAH",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Edit your bpm for custom search!",Toast.LENGTH_SHORT).show();
                 textView.setCursorVisible(true);
                 textView.setFocusableInTouchMode(true);
                 textView.setInputType(InputType.TYPE_CLASS_TEXT);

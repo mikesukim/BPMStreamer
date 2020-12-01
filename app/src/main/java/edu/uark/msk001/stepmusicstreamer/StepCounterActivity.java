@@ -27,7 +27,7 @@ import com.spotify.protocol.types.Track;
 import edu.uark.msk001.stepmusicstreamer.R;
 
 
-public class StepCounter extends AppCompatActivity implements SensorEventListener {
+public class StepCounterActivity extends AppCompatActivity implements SensorEventListener {
     private TextView tvStepCounter, tvOther;
     private SensorManager sensorManager;
     private Sensor mStepCounter;
