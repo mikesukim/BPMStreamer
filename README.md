@@ -8,3 +8,5 @@ Min SDK Version : 21
 getsongbpm API KEY : 607d39180d5c90afc1efcd4fc2fc512b
 request example: https://api.getsongbpm.com/tempo/?api_key=607d39180d5c90afc1efcd4fc2fc512b&bpm=60
 for detail, visit https://getsongbpm.com/api
+
+BPM Range : 40 - 220
