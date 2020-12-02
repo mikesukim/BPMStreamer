@@ -27,6 +27,10 @@
 
         <activity android:name=".MusicListActivity"/>
         <activity android:name=".StepCounterActivity"/>
+
+        <activity
+            android:name="com.spotify.sdk.android.auth.LoginActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 
 </manifest>
